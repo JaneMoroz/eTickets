@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Cinema>
+
+@{
+    ViewData["Title"] = "List of Cinemas";
+}
+
+<div class="list">
+    <div class="list__container">
+        <table class="table">
+            <tr class="table__header">
+                <th>@Html.DisplayNameFor(model => model.Logo)</th>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Logo" alt="@item.Name" class="table__img" />
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td class="table__long-text">@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>
+                        <div class="table__btns-box">
+                            <a href="#"
+                               class="btn btn--standard btn--rectangle btn--primary">
+                                <svg>
+                                    <use xlink:href="img/sprite.svg#icon-new-message"></use>
+                                </svg>
+                                <span class="table__btn-text">Edit</span>
+                            </a>
+                            <a class="btn btn--standard btn--rectangle btn--red">
+                                <svg>
+                                    <use xlink:href="img/sprite.svg#icon-trash"></use>
+                                </svg>
+                                <span class="table__btn-text">Delete</span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <a href="#"
+           class="
+              btn btn--rectangle btn--secondary btn--big
+              list__add
+            ">
+            <svg>
+                <use xlink:href="img/sprite.svg#icon-plus"></use>
+            </svg>
+            Add new
+        </a>
+    </div>
+</div>
