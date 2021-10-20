@@ -19,8 +19,16 @@ namespace eTickets.Models
         public string Description { get; set; }
         public double Price { get; set; }
         public string ImageUrl { get; set; }
+
+        [Display(Name = "Start Date")]
+        [DisplayFormat(DataFormatString = "{0:dd MMMM yyyy}")]
         public DateTime StartDate { get; set; }
+
+        [Display(Name = "End Date")]
+        [DisplayFormat(DataFormatString = "{0:dd MMMM yyyy}")]
         public DateTime EndDate { get; set; }
+
+        [Display(Name = "Category")]
         public MovieCategory MovieCategory { get; set; }
         public List<Actor_Movie> Actors_Movies { get; set; }
 
