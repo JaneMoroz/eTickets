@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Movie>
+
+@{
+    ViewData["Title"] = "List of Movies";
+}
+
+<section class="section-movies container">
+    @foreach (var item in Model)
+    {
+        <div class="movie">
+            <img src="@item.ImageUrl" alt="@item.Name" class="movie__img" />
+            <a href="#" class="btn btn--round btn--gold-no-border movie__edit">
+                <svg>
+                    <use xlink:href="img/sprite.svg#icon-new-message"></use>
+                </svg>
+            </a>
+            <div class="movie__about">
+                <h2 class="heading-secondary movie__title">@Html.DisplayFor(modelItem => item.Name)</h2>
+                <p class="movie__description">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </p>
+                <div class="movie__info">
+                    <p class="movie__info-title">@Html.DisplayNameFor(model => model.Cinema):</p>
+                    <p class="movie__info-detail">@Html.DisplayFor(modelItem => item.Cinema.Name)</p>
+                    <p class="movie__info-title">@Html.DisplayNameFor(model => model.MovieCategory):</p>
+                    <p class="movie__info-detail">@Html.DisplayFor(modelItem => item.MovieCategory)</p>
+                    <p class="movie__info-title">@Html.DisplayNameFor(model => model.StartDate):</p>
+                    <p class="movie__info-detail">@Html.DisplayFor(modelItem => item.StartDate)</p>
+                    <p class="movie__info-title">@Html.DisplayNameFor(model => model.EndDate):</p>
+                    <p class="movie__info-detail">@Html.DisplayFor(modelItem => item.EndDate)</p>
+                    <p class="movie__info-title">Status:</p>
+                    @if (DateTime.Now <= item.EndDate && DateTime.Now.AddDays(3) >= item.EndDate)
+                    {
+                        <span class="movie__info-status movie__info-status--last-chance">Last Chance</span>
+                    }
+                    else if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
+                    {
+                        <span class="movie__info-status movie__info-status--available">Available</span>
+                    }
+                    else if (DateTime.Now < item.StartDate)
+                    {
+                        <span class="movie__info-status movie__info-status--upcoming">Upcoming</span>
+                    }
+                    else
+                    {
+                        <span class="movie__info-status movie__info-status--expire">Expire</span>
+                    }
+
+                </div>
+                <div class="movie__buttons">
+                    <button class="btn btn--rectangle btn--primary btn--standard">
+                        <svg>
+                            <use xlink:href="img/sprite.svg#icon-shopping-cart"></use>
+                        </svg>
+                        Add to cart (@item.Price.ToString("c"))
+                    </button>
+                    <a href="movie-details.html" class="btn btn--rectangle btn--secondary btn--standard">
+                        <svg>
+                            <use xlink:href="img/sprite.svg#icon-eye"></use>
+                        </svg>
+                        Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</section>
