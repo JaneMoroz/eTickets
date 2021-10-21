@@ -33,7 +33,7 @@ namespace eTickets.Data.Services
         /// <param name="id">Actor's id</param>
         /// <param name="newActor"></param>
         /// <returns></returns>
-        Actor Update(int id, Actor newActor);
+        Task<Actor> UpdateAsync(Actor newActor);
 
         /// <summary>
         /// Delete actor
