@@ -39,6 +39,6 @@ namespace eTickets.Data.Services
         /// Delete actor
         /// </summary>
         /// <param name="id">Actor's id</param>
-        void Delete(int id);
+        Task DeleteAsync(int id);
     }
 }
