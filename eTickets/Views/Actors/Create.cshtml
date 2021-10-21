@@ -1,0 +1,66 @@
+﻿@model Actor 
+
+@{       
+    ViewData["Title"] = "Create a new actor";
+}
+
+<div class="add-new">
+    <div class="add-new__container">
+        <form asp-action="Create" class="form form--management">
+            <div asp-validation-summary="ModelOnly" class="text-red"></div>
+            <h2 class="heading-secondary add-new__title">Add a New Actor</h2>
+
+            <div class="form__group">
+                <label asp-for="ProfilePictureUrl" for="profile-picture" class="form__label"></label>
+                <input type="text"
+                       class="form__input"
+                       placeholder="Profile Picture URL"
+                       asp-for="ProfilePictureUrl"
+                       id="profile-picture"
+                       required />
+            </div>
+
+            <div class="form__group">
+                <img id="preview" src="#" alt="preview" onerror="this.src='https://i.ibb.co/z7KVHwn/question.jpg'" class="form__picture-preview">
+            </div>
+
+            <div class="form__group">
+                <label asp-for="FullName" for="full-name" class="form__label"></label>
+                <input type="text"
+                       class="form__input"
+                       placeholder="Last Name"
+                       asp-for="FullName"
+                       id="full-name"
+                       required />
+            </div>
+
+            <div class="form__group">
+                <label asp-for="Bio" for="bio" class="form__label">Biography</label>
+                <textarea type="text"
+                          class="form__input"
+                          placeholder="Biography"
+                          asp-for="Bio"
+                          id="bio"
+                          required></textarea>
+            </div>
+
+            <div class="form__btns">
+                <a asp-action="Index" class="btn btn--medium btn--rectangle btn--secondary">
+                    Show all
+                </a>
+                <button type="submit" class="btn btn--medium btn--rectangle btn--secondary">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $("#profile-picture").on("change", function () {
+            var output = document.getElementById("preview");
+            output.src = $(this).val();
+        });
+    </script>
+}

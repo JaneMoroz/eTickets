@@ -26,15 +26,18 @@ main {
 .heading-primary {
   font-size: 5.6rem;
   font-weight: 300;
-  letter-spacing: .4rem;
+  letter-spacing: 0.4rem;
   color: #fff;
   margin-bottom: 1.4rem; }
 
 .heading-secondary {
   font-size: 2.4rem;
   font-weight: 300;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   color: #fff; }
+
+.text-red {
+  color: #CE2929 !important; }
 
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
@@ -304,7 +307,10 @@ main {
       .list__container {
         padding: 0; } }
   .list__add {
-    align-self: flex-end; }
+    position: fixed;
+    background-color: #FAFAFA;
+    right: 2%;
+    bottom: 5%; }
 
 .table {
   grid-template-rows: auto;
@@ -450,9 +456,7 @@ main {
       font-size: 1.6rem;
       color: #777777; }
   .header__nav-item--dropdown:hover .header__nav-dropdown-content {
-    display: flex;
-    z-index: 1;
-    transform: translateY(0); }
+    display: flex; }
   .header__nav-item--dropdown:hover .header__nav-icon--toggle {
     transform: translateY(-5px) translateX(-3px) rotate(60deg);
     transform-origin: center; }
@@ -572,13 +576,19 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2.4rem; }
+  @media only screen and (max-width: 31.25em) {
+    .form {
+      padding: 2.4rem 3.2rem; } }
+  .form--management__label {
+    color: #777777; }
+  .form--guest__label {
+    color: #ffffff; }
   .form__group {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
     min-height: 9rem; }
   .form__label {
-    color: #ffffff;
     font-size: 1.8rem; }
   .form__input {
     font-family: inherit;
@@ -598,6 +608,13 @@ main {
       border-bottom: 3px solid #CE2929; }
     .form__input::-webkit-input-placeholder {
       color: #777777; }
+  .form__picture-preview {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    max-height: 20rem;
+    max-width: 20rem;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.125); }
   .form__btns {
     display: flex;
     justify-content: space-between; }
@@ -735,3 +752,14 @@ main {
     justify-content: right;
     gap: 3.2rem;
     margin-top: 4.8rem; }
+
+.add-new {
+  padding: 6.4rem 2.4rem; }
+  .add-new__container {
+    max-width: 65rem;
+    margin: 0 auto;
+    border-radius: 1.3rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.125); }
+  .add-new__title {
+    text-align: center;
+    color: #555555 !important; }

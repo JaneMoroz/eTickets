@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
           rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
     <title>@ViewData["Title"] - eTickets</title>
 </head>
@@ -16,7 +16,7 @@
     <header class="header">
         <a class="header__logo" asp-area="" asp-controller="Movies" asp-action="Index">
             <svg class="header__logo-icon">
-                <use xlink:href="img/sprite.svg#icon-ticket"></use>
+                <use xlink:href="../img/sprite.svg#icon-ticket"></use>
             </svg>
             <span class="header__logo-text">eTicket</span>
         </a>
@@ -26,7 +26,7 @@
                 <li class="header__nav-item">
                     <a class="header__nav-link header__nav-link--secondary" asp-area="" asp-controller="Movies" asp-action="Index">
                         <svg class="header__nav-icon">
-                            <use xlink:href="img/sprite.svg#icon-video"></use>
+                            <use xlink:href="../img/sprite.svg#icon-video"></use>
                         </svg>
                         <span>Movies</span>
                     </a>
@@ -34,29 +34,29 @@
                 <li class="header__nav-item header__nav-item--dropdown">
                     <a href="#" class="header__nav-link header__nav-link--secondary">
                         <svg class="header__nav-icon">
-                            <use xlink:href="img/sprite.svg#icon-cog"></use>
+                            <use xlink:href="../img/sprite.svg#icon-cog"></use>
                         </svg>
                         <span>Management</span>
                         <svg class="header__nav-icon header__nav-icon--toggle">
-                            <use xlink:href="img/sprite.svg#icon-triangle-down"></use>
+                            <use xlink:href="../img/sprite.svg#icon-triangle-down"></use>
                         </svg>
                     </a>
                     <div class="header__nav-dropdown-content">
                         <a class="header__nav-link header__nav-link--dropdown" asp-controller="Cinemas" asp-action="Index">
                             <svg class="header__nav-icon header__nav-icon--dropdown">
-                                <use xlink:href="img/sprite.svg#icon-video-camera"></use>
+                                <use xlink:href="../img/sprite.svg#icon-video-camera"></use>
                             </svg>
                             <span>Cinemas</span>
                         </a>
                         <a class="header__nav-link header__nav-link--dropdown" asp-controller="Directors" asp-action="Index">
                             <svg class="header__nav-icon header__nav-icon--dropdown">
-                                <use xlink:href="img/sprite.svg#icon-bullhorn"></use>
+                                <use xlink:href="../img/sprite.svg#icon-bullhorn"></use>
                             </svg>
                             <span>Directors</span>
                         </a>
                         <a class="header__nav-link header__nav-link--dropdown" asp-controller="Actors" asp-action="Index">
                             <svg class="header__nav-icon header__nav-icon--dropdown">
-                                <use xlink:href="img/sprite.svg#icon-mask"></use>
+                                <use xlink:href="../img/sprite.svg#icon-mask"></use>
                             </svg>
                             <span>Actors</span>
                         </a>
@@ -71,28 +71,28 @@
                    placeholder="Search for the movie..." />
             <button type="submit" asp-controller="Movies" asp-action="Filter" class="header__search-btn">
                 <svg class="header__search-icon">
-                    <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                    <use xlink:href="../img/sprite.svg#icon-magnifying-glass"></use>
                 </svg>
             </button>
         </form>
 
         <a href="shopping-cart.html" class="btn btn--icon header__btn--1">
             <svg>
-                <use xlink:href="img/sprite.svg#icon-shopping-cart"></use>
+                <use xlink:href="../img/sprite.svg#icon-shopping-cart"></use>
             </svg>
             <span class="btn--icon__notification">1</span>
         </a>
 
         <a class="btn btn--rectangle btn--primary btn--standard header__btn--2" asp-area="" asp-controller="Home" asp-action="Index">
             <svg>
-                <use xlink:href="img/sprite.svg#icon-login"></use>
+                <use xlink:href="../img/sprite.svg#icon-login"></use>
             </svg>
             Log In
         </a>
 
         <a class="btn btn--rectangle btn--primary btn--standard header__btn--3" asp-area="" asp-controller="Home" asp-action="Index">
             <svg>
-                <use xlink:href="img/sprite.svg#icon-add-user"></use>
+                <use xlink:href="../img/sprite.svg#icon-add-user"></use>
             </svg>
             Register
         </a>
