@@ -7,7 +7,6 @@
 <div class="add-new">
     <div class="add-new__container">
         <form asp-action="Create" class="form form--management">
-            <div asp-validation-summary="ModelOnly" class="text-red"></div>
             <h2 class="heading-secondary add-new__title">Add a New Actor</h2>
 
             <div class="form__group">
@@ -28,7 +27,7 @@
                 <label asp-for="FullName" for="full-name" class="form__label"></label>
                 <input type="text"
                        class="form__input"
-                       placeholder="Last Name"
+                       placeholder="Full Name"
                        asp-for="FullName"
                        id="full-name"
                        required />

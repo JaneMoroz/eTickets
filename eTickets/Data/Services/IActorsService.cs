@@ -12,20 +12,20 @@ namespace eTickets.Data.Services
         /// Get all actors
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<Actor>> GetAll();
+        Task<IEnumerable<Actor>> GetAllAsync();
 
         /// <summary>
         /// Get an actor by id
         /// </summary>
         /// <param name="id">Actor's Id</param>
         /// <returns></returns>
-        Actor GetById(int id);
+        Task<Actor> GetByIdAsync(int id);
 
         /// <summary>
         /// Add a new actor
         /// </summary>
         /// <param name="actor">Actor's model</param>
-        void Add(Actor actor);
+        Task AddAsync(Actor actor);
 
         /// <summary>
         /// Update actor
