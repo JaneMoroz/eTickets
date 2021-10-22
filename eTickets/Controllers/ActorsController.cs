@@ -22,7 +22,7 @@ namespace eTickets.Controllers
         public async Task<IActionResult> Index()
         {
             var allActors = await _service.GetAllAsync();
-            return View(allActors);
+            return View(allActors.OrderBy(x => x.FullName));
         }
 
         // Get: Actors/Create
