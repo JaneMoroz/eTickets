@@ -1,0 +1,70 @@
+﻿@model Cinema 
+
+@{       
+    ViewData["Title"] = "Update an actor";
+}
+
+<div class="add-new">
+    <div class="add-new__container">
+        <form asp-action="Edit" class="form form--management">
+            <h2 class="heading-secondary add-new__title">Update An Actor</h2>
+
+            <div class="form__group">
+                <label asp-for="Logo" for="logo-picture" class="form__label"></label>
+                <input type="text"
+                       class="form__input"
+                       placeholder="Logo URL"
+                       asp-for="Logo"
+                       id="logo-picture"
+                       required />
+            </div>
+
+            <div class="form__group">
+                <img id="preview" src="#" alt="preview" onerror="this.src='https://i.ibb.co/z7KVHwn/question.jpg'" class="form__picture-preview">
+            </div>
+
+            <div class="form__group">
+                <label asp-for="Name" for="cinema-name" class="form__label"></label>
+                <input type="text"
+                       class="form__input"
+                       placeholder="Cinema Name"
+                       asp-for="Name"
+                       id="cinema-name"
+                       required />
+            </div>
+
+            <div class="form__group">
+                <label asp-for="Description" for="description" class="form__label"></label>
+                <textarea type="text"
+                          class="form__input"
+                          placeholder="Biography"
+                          asp-for="Description"
+                          id="description"
+                          required></textarea>
+            </div>
+
+            <div class="form__btns">
+                <a asp-action="Index" class="btn btn--medium btn--rectangle btn--secondary">
+                    Show all
+                </a>
+                <button type="submit" class="btn btn--medium btn--rectangle btn--secondary">
+                    Update
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById("preview");
+            output.src = $("#logo-picture").val();
+        })
+
+        $("#logo-picture").on("change", function () {
+            var output = document.getElementById("preview");
+            output.src = $(this).val();
+        });
+    </script>
+}

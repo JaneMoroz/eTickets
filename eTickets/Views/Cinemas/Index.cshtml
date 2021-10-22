@@ -23,14 +23,15 @@
                     <td class="table__long-text">@Html.DisplayFor(modelItem => item.Description)</td>
                     <td>
                         <div class="table__btns-box">
-                            <a href="#"
+                            <a asp-action="Edit" asp-route-id="@item.Id"
                                class="btn btn--standard btn--rectangle btn--primary">
                                 <svg>
                                     <use xlink:href="img/sprite.svg#icon-new-message"></use>
                                 </svg>
                                 <span class="table__btn-text">Edit</span>
                             </a>
-                            <a class="btn btn--standard btn--rectangle btn--red">
+                            <a asp-action="Delete" asp-route-id="@item.Id"
+                               class="btn btn--standard btn--rectangle btn--red">
                                 <svg>
                                     <use xlink:href="img/sprite.svg#icon-trash"></use>
                                 </svg>
@@ -43,7 +44,7 @@
 
         </table>
 
-        <a href="#"
+        <a asp-action="Create"
            class="
               btn btn--rectangle btn--secondary btn--big
               list__add
