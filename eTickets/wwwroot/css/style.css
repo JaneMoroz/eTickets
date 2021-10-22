@@ -272,6 +272,7 @@ main {
   .details__img {
     width: 100%;
     max-width: 30rem;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     box-shadow: 0 4rem 10rem rgba(0, 0, 0, 0.125); }
   .details__text {
@@ -320,9 +321,11 @@ main {
   @media only screen and (max-width: 45em) {
     .table {
       display: grid; } }
+  .table th {
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777; }
   .table th,
   .table td {
-    border-top: 1px solid #777777;
     padding: 1.4rem 1.2rem;
     text-align: left; }
   .table th:nth-child(1),
@@ -334,7 +337,7 @@ main {
     width: 35%; }
   .table__img {
     max-height: 20rem;
-    width: auto;
+    aspect-ratio: 1 / 1;
     border-radius: 50%; }
     @media only screen and (max-width: 45em) {
       .table__img {
@@ -613,6 +616,7 @@ main {
     border-radius: 50%;
     max-height: 20rem;
     max-width: 20rem;
+    aspect-ratio: 1 / 1;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.125); }
   .form__btns {
     display: flex;
