@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eTickets.Data.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace eTickets.Models
     /// <summary>
     /// Director's model
     /// </summary>
-    public class Director
+    public class Director : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -21,6 +22,7 @@ namespace eTickets.Models
         public string FullName { get; set; }
 
         [Display(Name = "Biography")]
+        [MaxLength(450)]
         public string Bio { get; set; }
         public List<Movie> Movies { get; set; }
     }
