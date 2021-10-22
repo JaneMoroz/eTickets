@@ -1,13 +1,13 @@
 ﻿@model Cinema 
 
 @{       
-    ViewData["Title"] = "Update an actor";
+    ViewData["Title"] = "Update Cinema";
 }
 
 <div class="add-new">
     <div class="add-new__container">
         <form asp-action="Edit" class="form form--management">
-            <h2 class="heading-secondary add-new__title">Update An Actor</h2>
+            <h2 class="heading-secondary add-new__title">Update @Model.Name</h2>
 
             <div class="form__group">
                 <label asp-for="Logo" for="logo-picture" class="form__label"></label>

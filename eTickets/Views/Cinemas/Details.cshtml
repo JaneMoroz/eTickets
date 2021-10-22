@@ -1,31 +1,24 @@
-﻿@model Actor
+﻿@model Cinema
 
 @{
-    ViewData["Title"] = "Details of the actor";
+    ViewData["Title"] = "Details of the cinema";
 }
 
 <div class="details">
     <div class="details__container">
-        <img src="@Model.ProfilePictureUrl"
-             alt="@Model.FullName"
+        <img src="@Model.Logo"
+             alt="@Model.Name"
              class="details__img" />
         <div class="details__text">
-            <h2 class="heading-secondary details__title">@Model.FullName</h2>
+            <h2 class="heading-secondary details__title">@Model.Description</h2>
             <p class="details__description">
-                @Model.Bio
+                @Model.Description
             </p>
-
             <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn--medium btn--rectangle btn--primary details__btn">
                 <svg>
                     <use xlink:href="/img/sprite.svg#icon-new-message"></use>
                 </svg>
                 Update
-            </a>
-            <a href="https://www.imdb.com/" class="btn btn--medium btn--rectangle btn--primary details__btn">
-                <svg>
-                    <use xlink:href="/img/sprite.svg#icon-imdb"></use>
-                </svg>
-                Go to IMDb.com
             </a>
             <a asp-action="Index"
                class="btn btn--medium btn--rectangle btn--primary details__btn">
