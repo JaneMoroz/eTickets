@@ -54,7 +54,7 @@
                         </svg>
                         Add to cart (@item.Price.ToString("c"))
                     </button>
-                    <a href="movie-details.html" class="btn btn--rectangle btn--secondary btn--standard">
+                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id" class="btn btn--rectangle btn--secondary btn--standard">
                         <svg>
                             <use xlink:href="img/sprite.svg#icon-eye"></use>
                         </svg>

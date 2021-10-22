@@ -639,7 +639,6 @@ main {
     justify-self: end; }
 
 .movie-details {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../img/cyrano-medium.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

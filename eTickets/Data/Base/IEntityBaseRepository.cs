@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace eTickets.Data.Base
@@ -12,6 +13,13 @@ namespace eTickets.Data.Base
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<T>> GetAllAsync();
+
+        /// <summary>
+        /// Get all entities with include properties
+        /// </summary>
+        /// <param name="includeProperties"></param>
+        /// <returns></returns>
+        Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties);
 
         /// <summary>
         /// Get entity by id

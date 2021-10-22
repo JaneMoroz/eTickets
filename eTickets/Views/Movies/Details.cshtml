@@ -1,0 +1,76 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = "Details of the Movie";
+}
+
+<div class="movie-details" style="background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url( @Model.ImageUrl )">
+    <div class="movie-details__container">
+        <h1 class="heading-primary">@Model.Name</h1>
+        <p class="movie-details__description">
+            @Model.Description
+        </p>
+        <div class="movie-details__box">
+            <div class="movie-details__info">
+                <p class="movie-details__info-title">Cinema:</p>
+                <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.CinemaId"
+                   class="movie-details__info-detail-link">@Model.Cinema.Name</a>
+                <p class="movie-details__info-title">Category:</p>
+                <p class="movie-details__info-detail">@Model.MovieCategory</p>
+                <p class="movie-details__info-title">Director:</p>
+                <a asp-controller="Directors" asp-action="Details" asp-route-id="@Model.DirectorId"
+                   class="movie-details__info-detail-link">@Model.Director.FullName</a>
+                <p class="movie-details__info-title">Start Date:</p>
+                <p class="movie-details__info-detail">@Html.DisplayFor(modelItem => Model.EndDate)</p>
+                <p class="movie-details__info-title">End Date:</p>
+                <p class="movie-details__info-detail">@Html.DisplayFor(modelItem => Model.EndDate)</p>
+                <p class="movie__info-title">Status:</p>
+                @if (DateTime.Now <= Model.EndDate && DateTime.Now.AddDays(3) >= Model.EndDate)
+                {
+                    <span class="movie__info-status movie__info-status--last-chance">Last Chance</span>
+                }
+                else if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
+                {
+                    <span class="movie__info-status movie__info-status--available">Available</span>
+                }
+                else if (DateTime.Now < Model.StartDate)
+                {
+                    <span class="movie__info-status movie__info-status--upcoming">Upcoming</span>
+                }
+                else
+                {
+                    <span class="movie__info-status movie__info-status--expire">Expire</span>
+                }
+            </div>
+            <div class="movie-details__actors">
+                <p class="movie-details__actors-title">Actors:</p>
+                @foreach (var item in Model.Actors_Movies)
+                {
+                    <div class="movie-details__actor">
+                        <a asp-controller="Actors" asp-action="Details" asp-route-id="@item.ActorId"
+                           class="btn btn--img">
+                            <img src="@item.Actor.ProfilePictureUrl"
+                                 alt="@item.Actor.FullName"
+                                 class="movie-details__actor-img" />
+                            @item.Actor.FullName
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="movie-details__btns">
+            <a asp-action="Index"
+               class="btn btn--medium btn--rectangle btn--white">
+                <svg>
+                    <use xlink:href="/img/sprite.svg#icon-reply"></use>
+                </svg>
+                Back to movies
+            </a>
+            <button class="btn btn--medium btn--rectangle btn--white">
+                <svg>
+                    <use xlink:href="/img/sprite.svg#icon-shopping-cart"></use>
+                </svg>
+                Add to cart ($39.50)
+            </button>
+        </div>
+    </div>
+</div>
