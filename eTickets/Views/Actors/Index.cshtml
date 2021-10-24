@@ -7,59 +7,50 @@
 <div class="list">
     <div class="list__container">
         <table class="table">
-                <tr class="table__header">
-                    <th>@Html.DisplayNameFor(model => model.ProfilePictureUrl)</th>
-                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
-                    <th>@Html.DisplayNameFor(model => model.Bio)</th>
-                    <th></th>
+            <tr class="table__header">
+                <th>@Html.DisplayNameFor(model => model.ProfilePictureUrl)</th>
+                <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                <th>@Html.DisplayNameFor(model => model.Bio)</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.ProfilePictureUrl" alt="@item.FullName" class="table__img" />
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                    <td class="table__long-text">@Html.DisplayFor(modelItem => item.Bio)</td>
+                    <td>
+                        <div class="table__btns-box">
+                            <a asp-action="Edit" asp-route-id="@item.Id"
+                               class="btn btn--standard btn--rectangle btn--primary">
+                                <svg>
+                                    <use xlink:href="/img/sprite.svg#icon-new-message"></use>
+                                </svg>
+                                <span class="table__btn-text">Edit</span>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.Id"
+                               class="btn btn--standard btn--rectangle btn--secondary">
+                                <svg>
+                                    <use xlink:href="/img/sprite.svg#icon-eye"></use>
+                                </svg>
+                                <span class="table__btn-text">Details</span>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.Id"
+                               class="btn btn--standard btn--rectangle btn--red">
+                                <svg>
+                                    <use xlink:href="/img/sprite.svg#icon-trash"></use>
+                                </svg>
+                                <span class="table__btn-text">Delete</span>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <img src="@item.ProfilePictureUrl" alt="@item.FullName" class="table__img" />
-                        </td>
-                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
-                        <td class="table__long-text">@Html.DisplayFor(modelItem => item.Bio)</td>
-                        <td>
-                            <div class="table__btns-box">
-                                <a asp-action="Edit" asp-route-id="@item.Id"
-                                   class="btn btn--standard btn--rectangle btn--primary">
-                                    <svg>
-                                        <use xlink:href="/img/sprite.svg#icon-new-message"></use>
-                                    </svg>
-                                    <span class="table__btn-text">Edit</span>
-                                </a>
-                                <a asp-action="Details" asp-route-id="@item.Id"
-                                   class="btn btn--standard btn--rectangle btn--secondary">
-                                    <svg>
-                                        <use xlink:href="/img/sprite.svg#icon-eye"></use>
-                                    </svg>
-                                    <span class="table__btn-text">Details</span>
-                                </a>
-                                <a asp-action="Delete" asp-route-id="@item.Id"
-                                   class="btn btn--standard btn--rectangle btn--red">
-                                    <svg>
-                                        <use xlink:href="/img/sprite.svg#icon-trash"></use>
-                                    </svg>
-                                    <span class="table__btn-text">Delete</span>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            
+            }
+
         </table>
 
-        <a asp-controller="Actors" asp-action="Create"
-           class="
-              btn btn--rectangle btn--secondary btn--big
-              list__add
-            ">
-            <svg>
-                <use xlink:href="/img/sprite.svg#icon-plus"></use>
-            </svg>
-            Add new
-        </a>
+        @await Html.PartialAsync("_CreateItem", "Actors")
     </div>
 </div>
