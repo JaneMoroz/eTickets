@@ -31,5 +31,11 @@ namespace eTickets.Controllers
                 return View("NotFound");
             return View(movieDetail);
         }
+
+        // Get: Movies/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

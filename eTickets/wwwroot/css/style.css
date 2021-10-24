@@ -590,6 +590,14 @@ main {
     flex-direction: column;
     gap: 1.4rem;
     min-height: 9rem; }
+  .form__group-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; }
+    @media only screen and (max-width: 31.25em) {
+      .form__group-box {
+        flex-direction: column;
+        gap: 1.4rem; } }
   .form__label {
     font-size: 1.8rem; }
   .form__input {
@@ -618,6 +626,12 @@ main {
     max-width: 20rem;
     aspect-ratio: 1 / 1;
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.125); }
+    .form__picture-preview--poster {
+      border-radius: 1.3rem;
+      max-height: 40rem;
+      width: auto;
+      max-width: auto;
+      aspect-ratio: auto; }
   .form__btns {
     display: flex;
     justify-content: space-between; }
