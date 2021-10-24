@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace eTickets.Models
+namespace eTickets.Data.ViewModels
 {
     public class NewMovieVM
     {

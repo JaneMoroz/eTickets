@@ -1,4 +1,6 @@
 ﻿@model NewMovieVM
+@using eTickets.Data.ViewModels;
+@using eTickets.Data;
 
 @{
     ViewData["Title"] = "Add A New Movie";
@@ -62,9 +64,10 @@
             <div class="form__group">
                 <label asp-for="CinemaId" for="cinema" class="form__label"></label>
                 <select asp-for="CinemaId"
-                       class="form__input"
-                       id="cinema"
-                       required >
+                        asp-items="ViewBag.Cinemas"
+                        class="form__input"
+                        id="cinema"
+                        required >
                 </select>
             </div>
 
@@ -72,6 +75,7 @@
                 <label asp-for="MovieCategory" for="category" class="form__label"></label>
                 <select class="form__input"
                         asp-for="MovieCategory"
+                        asp-items="Html.GetEnumSelectList<MovieCategory>()"
                         id="category"
                         required >
                 </select>
@@ -80,6 +84,7 @@
             <div class="form__group">
                 <label asp-for="DirectorId" for="director" class="form__label"></label>
                 <select asp-for="DirectorId"
+                        asp-items="ViewBag.Directors"
                         class="form__input"
                         id="director"
                         required >
@@ -89,6 +94,7 @@
             <div class="form__group">
                 <label asp-for="ActorIds" for="actors" class="form__label"></label>
                 <select asp-for="ActorIds"
+                        asp-items="ViewBag.Actors"
                         class="form__input"
                         id="actors"
                         required
