@@ -34,5 +34,6 @@ namespace eTickets.Data
         public DbSet<Director> Directors { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
     }
 }
