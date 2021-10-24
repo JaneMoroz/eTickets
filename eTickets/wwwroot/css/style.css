@@ -589,7 +589,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    min-height: 9rem; }
+    min-height: 10rem; }
   .form__group-box {
     display: flex;
     justify-content: space-between;
@@ -609,7 +609,7 @@ main {
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.125);
     border: none;
-    transition: all 0.3s; }
+    transition: all 0.1s; }
     .form__input:focus {
       outline: none;
       box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.125);
