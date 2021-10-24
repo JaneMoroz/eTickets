@@ -1,0 +1,32 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Delete a movie";
+}
+
+<div class="message">
+    <div class="message__container">
+        <h1 class="heading-secondary message__title">Are you sure you want to delete @Model.Name?</h1>
+        <div class="message__btns">
+            <a asp-action="Index" asp-route-id="@Model.Id"
+               class="btn btn--medium btn--rectangle btn--secondary details__btn">
+                <svg>
+                    <use xlink:href="/img/sprite.svg#icon-new-message"></use>
+                </svg>
+                Go back
+            </a>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit"
+                   class="btn btn--medium btn--rectangle btn--red details__btn">
+                    <svg>
+                        <use xlink:href="/img/sprite.svg#icon-new-message"></use>
+                    </svg>
+                    Delete
+                </button>
+            </form>
+            
+        </div>
+    </div>
+</div>
+

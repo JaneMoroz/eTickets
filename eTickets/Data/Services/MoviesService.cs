@@ -50,6 +50,24 @@ namespace eTickets.Data.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task DeleteMovieAsync(int id)
+        {
+            var dbMovie = await _context.Movies.FirstOrDefaultAsync(n => n.Id == id);
+
+            if (dbMovie != null)
+            {
+                // Remove movie and actors ids from the joint table
+                var existingActorsDb = _context.Actors_Movies.Where(n => n.MovieId == id).ToList();
+                _context.Actors_Movies.RemoveRange(existingActorsDb);
+                await _context.SaveChangesAsync();
+
+                // Delete movie
+                _context.Movies.Remove(dbMovie);
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
             var movieDetails = await _context.Movies
