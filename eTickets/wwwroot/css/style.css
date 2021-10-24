@@ -114,6 +114,14 @@ main {
   .btn--gold-no-border svg {
     fill: #D9B673; }
 
+.btn--red-no-border {
+  background-color: #ffffff;
+  color: #CE2929;
+  border: none;
+  box-shadow: 0 4rem 20rem rgba(0, 0, 0, 0.5); }
+  .btn--red-no-border svg {
+    fill: #CE2929; }
+
 .btn--red {
   color: #CE2929;
   border: 1px solid #CE2929; }
@@ -142,6 +150,12 @@ main {
   background-color: #D9B673;
   color: #ffffff; }
   .btn--gold-no-border:hover svg, .btn--gold-no-border:active svg {
+    fill: #ffffff; }
+
+.btn--red-no-border:hover, .btn--red-no-border:active {
+  background-color: #CE2929;
+  color: #ffffff; }
+  .btn--red-no-border:hover svg, .btn--red-no-border:active svg {
     fill: #ffffff; }
 
 .btn--red:hover, .btn--red:active {
@@ -208,6 +222,10 @@ main {
   .movie__edit {
     position: absolute;
     top: 1%;
+    right: 3%; }
+  .movie__delete {
+    position: absolute;
+    top: 9%;
     right: 3%; }
   .movie__about {
     display: flex;
@@ -610,6 +628,8 @@ main {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.125);
     border: none;
     transition: all 0.1s; }
+    .form__input--select {
+      cursor: pointer; }
     .form__input:focus {
       outline: none;
       box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.125);
