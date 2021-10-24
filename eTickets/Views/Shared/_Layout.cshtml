@@ -65,11 +65,12 @@
             </ul>
         </div>
 
-        <form action="#" class="header__search">
+        <form asp-controller="Movies" asp-action="Filter" class="header__search">
             <input type="text"
+                   name="searchString"
                    class="header__search-input"
                    placeholder="Search for the movie..." />
-            <button type="submit" asp-controller="Movies" asp-action="Filter" class="header__search-btn">
+            <button type="submit" class="header__search-btn">
                 <svg class="header__search-icon">
                     <use xlink:href="/img/sprite.svg#icon-magnifying-glass"></use>
                 </svg>
