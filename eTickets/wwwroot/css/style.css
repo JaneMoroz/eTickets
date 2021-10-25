@@ -354,6 +354,24 @@ main {
     width: 15%; }
   .table th:nth-child(4) {
     width: 35%; }
+  .table__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem; }
+  .table__list-item {
+    padding: 1.2rem;
+    background-color: transparent;
+    border: 1px solid #299BB4;
+    color: #299BB4;
+    border-radius: 1.3rem; }
+    .table__list-item span {
+      display: inline-block;
+      padding: 1.2rem 1.8rem;
+      margin-right: 1.2rem;
+      border-radius: 50%;
+      color: #ffffff;
+      background-color: #299BB4; }
   .table__img {
     max-height: 20rem;
     aspect-ratio: 1 / 1;
@@ -775,41 +793,41 @@ main {
   .register__title {
     text-align: center; }
 
-.shopping-cart {
+.order-list {
   padding: 6.4rem 2.4rem; }
-  .shopping-cart__container {
+  .order-list__container {
     max-width: 100rem;
     margin: 0 auto; }
-  .shopping-cart__title {
+  .order-list__title {
     color: #555555;
     text-align: center;
     margin-bottom: 3.2rem; }
-  .shopping-cart__btns {
+  .order-list__btns {
     display: flex;
     justify-content: right;
     gap: 3.2rem;
     margin-top: 4.8rem; }
     @media only screen and (max-width: 31.25em) {
-      .shopping-cart__btns {
+      .order-list__btns {
         flex-direction: column;
         align-items: center; } }
-  .shopping-cart__add-remove-btns {
+  .order-list__add-remove-btns {
     display: flex;
     flex-direction: column;
     gap: 1rem; }
-  .shopping-cart th:nth-child(1),
-  .shopping-cart th:nth-child(3) {
+  .order-list th:nth-child(1),
+  .order-list th:nth-child(3) {
     width: 20%; }
-  .shopping-cart th:nth-child(2) {
+  .order-list th:nth-child(2) {
     width: 35%; }
-  .shopping-cart th:nth-child(4) {
+  .order-list th:nth-child(4) {
     width: 25%; }
-  .shopping-cart th:nth-child(5) {
+  .order-list th:nth-child(5) {
     width: 20%; }
-  .shopping-cart__final-row {
+  .order-list__final-row {
     border-top: 1px solid #777777;
     border-bottom: 1px solid #777777; }
-  .shopping-cart__final-title {
+  .order-list__final-title {
     font-weight: 500; }
 
 .add-new {

@@ -5,9 +5,9 @@
     ViewData["Title"] = "Shopping cart summary";
 }
 
-<div class="shopping-cart">
-    <div class="shopping-cart__container">
-        <h1 class="heading-primary shopping-cart__title">
+<div class="order-list">
+    <div class="order-list__container">
+        <h1 class="heading-primary order-list__title">
             Your shopping cart
         </h1>
         <table class="table">
@@ -25,7 +25,7 @@
                     <td>@item.Movie.Name</td>
                     <td>@item.Movie.Price.ToString("c")</td>
                     <td>@((item.Amount*item.Movie.Price).ToString("c"))</td>
-                    <td class="shopping-cart__add-remove-btns">
+                    <td class="order-list__add-remove-btns">
                         <a asp-controller="Orders" 
                            asp-action="AddItemToShoppingCart" 
                            asp-route-id="@item.Movie.Id"
@@ -46,16 +46,16 @@
                 </tr>
             }
 
-            <tr class="shopping-cart__final-row">
+            <tr class="order-list__final-row">
                 <td></td>
                 <td></td>
-                <td class="shopping-cart__final-title">Total:</td>
+                <td class="order-list__final-title">Total:</td>
                 <td>@Model.ShoppingCartTotal.ToString("c")</td>
                 <td></td>
             </tr>
         </table>
 
-        <div class="shopping-cart__btns">
+        <div class="order-list__btns">
             <a asp-action="CompleteOrder" class="btn btn--medium btn--rectangle btn--primary">
                 <svg>
                     <use xlink:href="/img/sprite.svg#icon-paypal"></use>

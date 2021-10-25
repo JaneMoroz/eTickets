@@ -34,6 +34,13 @@ namespace eTickets.Controllers
             return View(response);
         }
 
+        public async Task<IActionResult> Index()
+        {
+            string userId = "";
+            var orders = await _ordersService.GetOrdersByUserIdAsync(userId);
+            return View(orders);
+        }
+
         public async Task<IActionResult> AddItemToShoppingCart(int id)
         {
             var movie = await _moviesService.GetMovieByIdAsync(id);
