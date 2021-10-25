@@ -34,14 +34,14 @@
                                 <use xlink:href="/img/sprite.svg#icon-plus"></use>
                             </svg>
                         </a>
-                        <button asp-controller="Orders" 
+                        <a asp-controller="Orders" 
                                 asp-action="RemoveItemFromShoppingCart"
                                 asp-route-id="@item.Movie.Id"
                                 class="btn btn--icon-small btn--icon-red">
                             <svg>
                                 <use xlink:href="/img/sprite.svg#icon-minus"></use>
                             </svg>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             }

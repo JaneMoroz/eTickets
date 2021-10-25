@@ -79,8 +79,6 @@ namespace eTickets.Data.Cart
                 {
                     _context.ShoppingCartItems.Remove(shoppingCartItem);
                 }
-
-                _context.ShoppingCartItems.Add(shoppingCartItem);
             }
 
             _context.SaveChanges();
