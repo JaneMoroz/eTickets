@@ -25,15 +25,15 @@
                     <td>@item.Movie.Name</td>
                     <td>@item.Movie.Price.ToString("c")</td>
                     <td>@((item.Amount*item.Movie.Price).ToString("c"))</td>
-                    <td>
-                        <button asp-controller="Orders" 
-                                asp-action="AddItemToShoppingCart"
-                                asp-route-id="@item.Movie.Id"
+                    <td class="shopping-cart__add-remove-btns">
+                        <a asp-controller="Orders" 
+                           asp-action="AddItemToShoppingCart" 
+                           asp-route-id="@item.Movie.Id"
                                 class="btn btn--icon-small btn--icon-green">
                             <svg>
                                 <use xlink:href="/img/sprite.svg#icon-plus"></use>
                             </svg>
-                        </button>
+                        </a>
                         <button asp-controller="Orders" 
                                 asp-action="RemoveItemFromShoppingCart"
                                 asp-route-id="@item.Movie.Id"
