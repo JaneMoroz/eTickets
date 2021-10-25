@@ -1,0 +1,73 @@
+﻿@model ShoppingCartVM
+@using eTickets.Data.ViewModels;
+
+@{ 
+    ViewData["Title"] = "Shopping cart summary";
+}
+
+<div class="shopping-cart">
+    <div class="shopping-cart__container">
+        <h1 class="heading-primary shopping-cart__title">
+            Your shopping cart
+        </h1>
+        <table class="table">
+            <tr class="table__header">
+                <th>Selected amount</th>
+                <th>Movie</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+            {
+                <tr>
+                    <td>@item.Amount</td>
+                    <td>@item.Movie.Name</td>
+                    <td>@item.Movie.Price.ToString("c")</td>
+                    <td>@((item.Amount*item.Movie.Price).ToString("c"))</td>
+                    <td>
+                        <button asp-controller="Orders" 
+                                asp-action="AddItemToShoppingCart"
+                                asp-route-id="@item.Movie.Id"
+                                class="btn btn--icon-small btn--icon-green">
+                            <svg>
+                                <use xlink:href="/img/sprite.svg#icon-plus"></use>
+                            </svg>
+                        </button>
+                        <button asp-controller="Orders" 
+                                asp-action="RemoveItemFromShoppingCart"
+                                asp-route-id="@item.Movie.Id"
+                                class="btn btn--icon-small btn--icon-red">
+                            <svg>
+                                <use xlink:href="/img/sprite.svg#icon-minus"></use>
+                            </svg>
+                        </button>
+                    </td>
+                </tr>
+            }
+
+            <tr class="shopping-cart__final-row">
+                <td></td>
+                <td></td>
+                <td class="shopping-cart__final-title">Total:</td>
+                <td>@Model.ShoppingCartTotal.ToString("c")</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="shopping-cart__btns">
+            <a class="btn btn--medium btn--rectangle btn--primary">
+                <svg>
+                    <use xlink:href="/img/sprite.svg#icon-paypal"></use>
+                </svg>
+                Pay with PayPal
+            </a>
+            <a asp-controller="Movies" asp-action="Index" class="btn btn--medium btn--rectangle btn--primary">
+                <svg>
+                    <use xlink:href="/img/sprite.svg#icon-shopping-cart"></use>
+                </svg>
+                Add more items
+            </a>
+        </div>
+    </div>
+</div>

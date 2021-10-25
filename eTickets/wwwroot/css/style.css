@@ -788,6 +788,24 @@ main {
     justify-content: right;
     gap: 3.2rem;
     margin-top: 4.8rem; }
+    @media only screen and (max-width: 31.25em) {
+      .shopping-cart__btns {
+        flex-direction: column;
+        align-items: center; } }
+  .shopping-cart th:nth-child(1),
+  .shopping-cart th:nth-child(3) {
+    width: 20%; }
+  .shopping-cart th:nth-child(2) {
+    width: 35%; }
+  .shopping-cart th:nth-child(4) {
+    width: 25%; }
+  .shopping-cart th:nth-child(5) {
+    width: 20%; }
+  .shopping-cart__final-row {
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777; }
+  .shopping-cart__final-title {
+    font-weight: 500; }
 
 .add-new {
   padding: 6.4rem 2.4rem; }
