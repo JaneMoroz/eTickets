@@ -1,0 +1,62 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    @*Display User Profile DropDown*@
+    <div class="header__nav-item--dropdown header__btn--2">
+        <a href="#" class="btn btn--rectangle btn--primary btn--standard btn--dropdown">
+            <svg>
+                <use xlink:href="/img/sprite.svg#icon-happy"></use>
+            </svg>
+            Account
+            <svg class="header__nav-icon header__nav-icon--toggle">
+                <use xlink:href="/img/sprite.svg#icon-triangle-down"></use>
+            </svg>
+        </a>
+        <div class="header__nav-dropdown-content">
+            <a href="#" class="header__nav-link header__nav-link--dropdown">
+                <svg class="header__nav-icon header__nav-icon--dropdown">
+                    <use xlink:href="/img/sprite.svg#icon-ticket"></use>
+                </svg>
+                <span>Profile</span>
+            </a>
+            <a asp-controller="Orders" asp-action="Index" class="header__nav-link header__nav-link--dropdown">
+                <svg class="header__nav-icon header__nav-icon--dropdown">
+                    <use xlink:href="/img/sprite.svg#icon-user"></use>
+                </svg>
+                <span>Orders</span>
+            </a>
+        </div>
+    </div>
+
+    @*Display Log Out Button*@
+    <form asp-controller="Account" asp-action="Logout" class="header__btn--3">
+        <button class="btn btn--rectangle btn--primary btn--standard">
+            <svg>
+                <use xlink:href="/img/sprite.svg#icon-log-out"></use>
+            </svg>
+            Log Out
+        </button>
+    </form>
+}
+else
+{
+    @*Display Log In Button*@
+    <a asp-controller="Account" asp-action="Login"
+       class="btn btn--rectangle btn--primary btn--standard header__btn--2">
+        <svg>
+            <use xlink:href="/img/sprite.svg#icon-login"></use>
+        </svg>
+        Log In
+    </a>
+
+    @*Display Register Button*@
+    <a asp-controller="Account" asp-action="Register"
+       class="btn btn--rectangle btn--primary btn--standard header__btn--3">
+        <svg>
+            <use xlink:href="/img/sprite.svg#icon-add-user"></use>
+        </svg>
+        Register
+    </a>
+}
+
+
+
