@@ -113,13 +113,24 @@
             </div>
         </div>*@
 
-        <a asp-controller="Account" asp-action="Register"
+        @*<a asp-controller="Account" asp-action="Register"
            class="btn btn--rectangle btn--primary btn--standard header__btn--3">
             <svg>
                 <use xlink:href="/img/sprite.svg#icon-add-user"></use>
             </svg>
             Register
         </a>
+        *@
+
+    <form asp-controller="Account" asp-action="Logout" class="header__btn--3">
+        <button class="btn btn--rectangle btn--primary btn--standard">
+            <svg>
+                <use xlink:href="/img/sprite.svg#icon-log-out"></use>
+            </svg>
+            Log Out
+        </button>
+    </form>
+        
     </header>
 
     <main>
