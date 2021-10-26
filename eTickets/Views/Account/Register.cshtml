@@ -1,15 +1,15 @@
 ﻿@using eTickets.Data.ViewModels
-@model LoginVM
+@model RegisterVM
 
 @{ 
-    ViewData["Title"] = "Log In To Your Account";
+    ViewData["Title"] = "Sign Up For A New Account";
 }
 
 <div class="account">
     <div class="account__container">
-        <form asp-action="Login" class="form form--guest">
+        <form asp-action="Register" class="form form--guest">
             <h2 class="heading-secondary account__title">
-                Log In To Your Account
+                Sign Up For A New Account
             </h2>
 
             @if (TempData["Error"] != null)
@@ -18,6 +18,16 @@
                     @TempData["Error"]
                 </p>
             }
+
+            <div class="form__group">
+                <label asp-for="@Model.FullName" for="full-name" class="form__label"></label>
+                <input asp-for="@Model.FullName"
+                       type="text"
+                       class="form__input"
+                       placeholder="Full Name"
+                       id="full-name"
+                       required />
+            </div>
 
             <div class="form__group">
                 <label asp-for="@Model.EmailAddress" for="email" class="form__label"></label>
@@ -39,14 +49,25 @@
                        required />
             </div>
 
+            <div class="form__group">
+                <label asp-for="@Model.ConfirmPassword" for="confirm-password" class="form__label"></label>
+                <input asp-for="@Model.ConfirmPassword"
+                       type="password"
+                       class="form__input"
+                       placeholder="Confirm Password"
+                       id="confirm-password"
+                       required />
+                <span asp-validation-for="@Model.ConfirmPassword" class="account__error"></span>
+            </div>
+
             <div class="form__btns">
-                <a asp-controller="Movies" 
-                        asp-action="Index" 
-                        class="btn btn--medium btn--rectangle btn--white">
+                <a asp-controller="Movies"
+                   asp-action="Index"
+                   class="btn btn--medium btn--rectangle btn--white">
                     Cancel
                 </a>
                 <button type="submit" class="btn btn--medium btn--rectangle btn--white">
-                    Log In
+                    Sign Up
                 </button>
             </div>
         </form>
