@@ -15,7 +15,10 @@
                 <th>Items</th>
                 <th>Total</th>
                 <th>Total With Tax</th>
-                <th>User</th>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                {
+                    <th>User</th>
+                }
             </tr>
             @foreach (var order in Model)
             {
@@ -33,7 +36,10 @@
                     </td>
                     <td>@order.OrderItems.Select(x => x.Price * x.Amount).Sum().ToString("c")</td>
                     <td>@order.OrderItems.Select(x => x.Price * x.Amount).Sum().ToString("c")</td>
-                    <td> - </td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <td> @order.User.FullName </td>
+                    }
                 </tr>
             }
         </table>
