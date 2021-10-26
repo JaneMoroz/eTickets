@@ -14,16 +14,25 @@
         <div class="header__nav-dropdown-content">
             <a href="#" class="header__nav-link header__nav-link--dropdown">
                 <svg class="header__nav-icon header__nav-icon--dropdown">
-                    <use xlink:href="/img/sprite.svg#icon-ticket"></use>
+                    <use xlink:href="/img/sprite.svg#icon-user"></use>
                 </svg>
                 <span>Profile</span>
             </a>
             <a asp-controller="Orders" asp-action="Index" class="header__nav-link header__nav-link--dropdown">
                 <svg class="header__nav-icon header__nav-icon--dropdown">
-                    <use xlink:href="/img/sprite.svg#icon-user"></use>
+                    <use xlink:href="/img/sprite.svg#icon-ticket"></use>
                 </svg>
                 <span>Orders</span>
             </a>
+            @if (User.IsInRole("admin"))
+            {
+                <a asp-controller="Account" asp-action="Users" class="header__nav-link header__nav-link--dropdown">
+                    <svg class="header__nav-icon header__nav-icon--dropdown">
+                        <use xlink:href="/img/sprite.svg#icon-users"></use>
+                    </svg>
+                    <span>Users</span>
+                </a>
+            }
         </div>
     </div>
 
