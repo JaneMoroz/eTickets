@@ -11,16 +11,21 @@
                 <th>@Html.DisplayNameFor(model => model.ProfilePictureUrl)</th>
                 <th>@Html.DisplayNameFor(model => model.FullName)</th>
                 <th>@Html.DisplayNameFor(model => model.Bio)</th>
-                <th></th>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                {
+                    <th></th>
+                }
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        <img src="@item.ProfilePictureUrl" alt="@item.FullName" class="table__img" />
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
-                    <td class="table__long-text">@Html.DisplayFor(modelItem => item.Bio)</td>
+            <tr>
+                <td>
+                    <img src="@item.ProfilePictureUrl" alt="@item.FullName" class="table__img" />
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                <td class="table__long-text">@Html.DisplayFor(modelItem => item.Bio)</td>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                {
                     <td>
                         <div class="table__btns-box">
                             <a asp-action="Edit" asp-route-id="@item.Id"
@@ -46,7 +51,9 @@
                             </a>
                         </div>
                     </td>
-                </tr>
+                }
+            
+            </tr>
             }
 
         </table>

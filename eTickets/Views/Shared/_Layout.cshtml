@@ -31,37 +31,40 @@
                         <span>Movies</span>
                     </a>
                 </li>
-                <li class="header__nav-item header__nav-item--dropdown">
-                    <a href="#" class="header__nav-link header__nav-link--secondary">
-                        <svg class="header__nav-icon">
-                            <use xlink:href="/img/sprite.svg#icon-cog"></use>
-                        </svg>
-                        <span>Management</span>
-                        <svg class="header__nav-icon header__nav-icon--toggle">
-                            <use xlink:href="/img/sprite.svg#icon-triangle-down"></use>
-                        </svg>
-                    </a>
-                    <div class="header__nav-dropdown-content">
-                        <a class="header__nav-link header__nav-link--dropdown" asp-controller="Cinemas" asp-action="Index">
-                            <svg class="header__nav-icon header__nav-icon--dropdown">
-                                <use xlink:href="/img/sprite.svg#icon-video-camera"></use>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                {
+                    <li class="header__nav-item header__nav-item--dropdown">
+                        <a href="#" class="header__nav-link header__nav-link--secondary">
+                            <svg class="header__nav-icon">
+                                <use xlink:href="/img/sprite.svg#icon-cog"></use>
                             </svg>
-                            <span>Cinemas</span>
-                        </a>
-                        <a class="header__nav-link header__nav-link--dropdown" asp-controller="Directors" asp-action="Index">
-                            <svg class="header__nav-icon header__nav-icon--dropdown">
-                                <use xlink:href="/img/sprite.svg#icon-bullhorn"></use>
+                            <span>Management</span>
+                            <svg class="header__nav-icon header__nav-icon--toggle">
+                                <use xlink:href="/img/sprite.svg#icon-triangle-down"></use>
                             </svg>
-                            <span>Directors</span>
                         </a>
-                        <a class="header__nav-link header__nav-link--dropdown" asp-controller="Actors" asp-action="Index">
-                            <svg class="header__nav-icon header__nav-icon--dropdown">
-                                <use xlink:href="/img/sprite.svg#icon-mask"></use>
-                            </svg>
-                            <span>Actors</span>
-                        </a>
-                    </div>
-                </li>
+                        <div class="header__nav-dropdown-content">
+                            <a class="header__nav-link header__nav-link--dropdown" asp-controller="Cinemas" asp-action="Index">
+                                <svg class="header__nav-icon header__nav-icon--dropdown">
+                                    <use xlink:href="/img/sprite.svg#icon-video-camera"></use>
+                                </svg>
+                                <span>Cinemas</span>
+                            </a>
+                            <a class="header__nav-link header__nav-link--dropdown" asp-controller="Directors" asp-action="Index">
+                                <svg class="header__nav-icon header__nav-icon--dropdown">
+                                    <use xlink:href="/img/sprite.svg#icon-bullhorn"></use>
+                                </svg>
+                                <span>Directors</span>
+                            </a>
+                            <a class="header__nav-link header__nav-link--dropdown" asp-controller="Actors" asp-action="Index">
+                                <svg class="header__nav-icon header__nav-icon--dropdown">
+                                    <use xlink:href="/img/sprite.svg#icon-mask"></use>
+                                </svg>
+                                <span>Actors</span>
+                            </a>
+                        </div>
+                    </li>
+                }
             </ul>
         </div>
 

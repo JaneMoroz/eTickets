@@ -14,13 +14,15 @@
             <p class="details__description">
                 @Model.Bio
             </p>
-
-            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn--medium btn--rectangle btn--primary details__btn">
-                <svg>
-                    <use xlink:href="/img/sprite.svg#icon-new-message"></use>
-                </svg>
-                Update
-            </a>
+            @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn--medium btn--rectangle btn--primary details__btn">
+                    <svg>
+                        <use xlink:href="/img/sprite.svg#icon-new-message"></use>
+                    </svg>
+                    Update
+                </a>
+            }
             <a href="https://www.imdb.com/" class="btn btn--medium btn--rectangle btn--primary details__btn">
                 <svg>
                     <use xlink:href="/img/sprite.svg#icon-imdb"></use>
