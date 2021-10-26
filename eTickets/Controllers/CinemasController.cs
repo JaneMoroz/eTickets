@@ -1,6 +1,7 @@
 ﻿using eTickets.Data;
 using eTickets.Data.Services;
 using eTickets.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,6 +27,7 @@ namespace eTickets.Controllers
         }
 
         // Get: Cinemas/Create
+        [Authorize(Roles = "admin")]
         public IActionResult Create()
         {
             return View();
@@ -33,6 +35,7 @@ namespace eTickets.Controllers
 
         // Post: Create
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create([Bind("Name, Logo, Description")] Cinema cinema)
         {
             if (!ModelState.IsValid)
@@ -55,6 +58,7 @@ namespace eTickets.Controllers
         }
 
         // Get: Cinemas/Edit/1
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var cinemaDetails = await _service.GetByIdAsync(id);
@@ -66,6 +70,7 @@ namespace eTickets.Controllers
 
         // Post: Edit
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit([Bind("Id, Name, Logo, Description")] Cinema cinema)
         {
             if (!ModelState.IsValid)
@@ -78,6 +83,7 @@ namespace eTickets.Controllers
         }
 
         // Get: Cinema/Delete/1
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var cinemaDetails = await _service.GetByIdAsync(id);
@@ -89,6 +95,7 @@ namespace eTickets.Controllers
 
         // Post: DeleteConfirmed
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cinemaDetails = await _service.GetByIdAsync(id);

@@ -1,6 +1,7 @@
 ﻿using eTickets.Data;
 using eTickets.Data.Services;
 using eTickets.Data.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +50,7 @@ namespace eTickets.Controllers
         }
 
         // Get: Movies/Create
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create()
         {
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
@@ -62,6 +64,7 @@ namespace eTickets.Controllers
 
         // Post: Movies/Create
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create(NewMovieVM movie) 
         {
             if(!ModelState.IsValid)
@@ -80,6 +83,7 @@ namespace eTickets.Controllers
         }
 
         // Get: Movies/Edit/1
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
@@ -113,6 +117,7 @@ namespace eTickets.Controllers
 
         // Post: Movies/Edit
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Edit(int id, NewMovieVM movie)
         {
             if (id != movie.Id)
@@ -134,6 +139,7 @@ namespace eTickets.Controllers
         }
 
         // Get: Movies/Delete/1
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
@@ -144,6 +150,7 @@ namespace eTickets.Controllers
 
         // Post: DeleteConfirmed
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var movieDetails = await _service.GetMovieByIdAsync(id);
