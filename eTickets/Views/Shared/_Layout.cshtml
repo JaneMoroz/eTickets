@@ -79,14 +79,15 @@
 
         @await Component.InvokeAsync("ShoppingCartSummary")
 
-        @*<a class="btn btn--rectangle btn--primary btn--standard header__btn--2" asp-area="" asp-controller="Home" asp-action="Index">
+        <a asp-controller="Account" asp-action="Login"
+           class="btn btn--rectangle btn--primary btn--standard header__btn--2">
             <svg>
                 <use xlink:href="/img/sprite.svg#icon-login"></use>
             </svg>
             Log In
-        </a>*@
+        </a>
 
-        <div class="header__nav-item--dropdown header__btn--2">
+        @*<div class="header__nav-item--dropdown header__btn--2">
             <a href="#" class="btn btn--rectangle btn--primary btn--standard btn--dropdown">
                 <svg>
                     <use xlink:href="/img/sprite.svg#icon-happy"></use>
@@ -110,7 +111,7 @@
                     <span>Orders</span>
                 </a>
             </div>
-        </div>
+        </div>*@
 
         <a class="btn btn--rectangle btn--primary btn--standard header__btn--3" asp-area="" asp-controller="Home" asp-action="Index">
             <svg>
