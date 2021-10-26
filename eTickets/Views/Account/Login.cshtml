@@ -12,6 +12,13 @@
                 Log In To Your Account
             </h2>
 
+            @if (TempData["Error"] != null)
+            {
+                <p class="account__error">
+                    @TempData["Error"]
+                </p>
+            }
+
             <div class="form__group">
                 <label asp-for="@Model.EmailAddress" for="email" class="form__label"></label>
                 <input asp-for="@Model.EmailAddress"
